@@ -1,0 +1,136 @@
+body{
+    background: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #000;
+    min-width: 1500px;
+    font-size: 1em;
+}
+.navigationL{
+    padding-top: 7%;
+    padding-left: 5%;
+    float: left; 
+    position: absolute;
+}
+.navigationL a{
+    text-decoration-line: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: #000;
+}
+.navigationR{
+    padding-top: 7%;
+    padding-right: 5%;
+    float: right;
+}
+ .navigationR a{
+    text-decoration-line: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    color: #000;
+    padding-right: 15px;
+ }
+ .navigationR img{
+    padding-top:10px;
+    padding-right: 20px;
+    width: 20px;
+    height: 20px;
+    float: right;
+ }
+ .ContactGrid {
+    padding-top: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: grid;
+    grid-template-columns: 25% 25% 50%;
+    grid-column-gap: 100px;
+ }
+ .HomeGrid{
+    display: grid;
+    padding-top: 20%;
+    padding-left: 12%;
+    padding-right: 12%;
+    grid-template-columns: repeat(4, 300px);
+    grid-gap: 20px;
+    grid-auto-rows: 430px;
+    grid-area: auto;
+ }
+ .HomeGridItem{
+    display: grid;
+    grid-template-rows: 400px 30px;
+ }
+ .HomeGrid > div {
+    /*border: #000 1px solid;*/
+ }
+.HomeGridImg{
+    width: 300px;
+    height: 400px;
+}
+.HomeGridTitle{
+    color: black;
+    margin: auto;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+}
+.footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0px;
+    background-color: #efefef;
+    opacity: 0.75;
+  }
+.Fleft{
+float: left;
+padding-left: 50px;
+padding-top: 20px;
+}
+.Fcenter{
+text-align: center;
+}
+.Fright{
+position: absolute;
+float: right;
+right: 50px;
+padding-top: 20px;
+}
+#padding{
+    padding-left: 10px;
+    color: #000;
+}
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+/*Animal Gallary*/
+.MainGallary{
+    display: grid;
+    grid-area: auto;
+    grid-gap: 1%;
+    grid-template-columns: repeat(6, 1fr);
+    padding-top: 20%;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+#Gallary img{
+    width: 200px;
+    height: 200px;
+    transition: 0.3s;
+}
+#Gallary img:hover{
+    opacity: 0.50;
+    transform: scale(1.1);
+}
