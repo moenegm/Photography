@@ -60,6 +60,10 @@ body{
     display: grid;
     grid-template-rows: 400px 30px;
  }
+ .HomeGridItem:hover{
+    opacity: 0.50;
+    transform: scale(1.1);
+}
  .HomeGrid > div {
     /*border: #000 1px solid;*/
  }
@@ -119,11 +123,12 @@ a:active {
 .MainGallary{
     display: grid;
     grid-area: auto;
-    grid-gap: 1%;
+    grid-column-gap: 0.5%;
     grid-template-columns: repeat(6, 1fr);
     padding-top: 20%;
     padding-left: 12%;
     padding-right: 12%;
+    padding-bottom: 5%;
 }
 #Gallary img{
     width: 200px;
