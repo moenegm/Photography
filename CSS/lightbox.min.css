@@ -65,7 +65,7 @@ html.lb-disable-scrolling {
     width:32px;
     height:32px;
     margin:0 auto;
-    background:url(../images/Icon/loading.gif) no-repeat
+    background:url(../Images/Icon/loading.gif) no-repeat
 }
 .lb-nav {
     top:0;
@@ -89,7 +89,7 @@ html.lb-disable-scrolling {
     width:34%;
     left:0;
     float:left;
-    background:url(../images/Icon/prev.png) left 48% no-repeat;
+    background:url(../Images/Icon/prev.png) left 48% no-repeat;
     filter:alpha(Opacity=0);
     opacity:0;
     -webkit-transition:opacity .6s;
@@ -105,7 +105,7 @@ html.lb-disable-scrolling {
     width:64%;
     right:0;
     float:right;
-    background:url(../images/Icon/next.png) right 48% no-repeat;
+    background:url(../Images/Icon/next.png) right 48% no-repeat;
     filter:alpha(Opacity=0);
     opacity:0;
     -webkit-transition:opacity .6s;
@@ -157,7 +157,7 @@ html.lb-disable-scrolling {
     float:right;
     width:30px;
     height:30px;
-    background:url(../images/Icon/close.png) top right no-repeat;
+    background:url(../Images/Icon/close.png) top right no-repeat;
     text-align:right;
     outline:0;
     filter:alpha(Opacity=70);

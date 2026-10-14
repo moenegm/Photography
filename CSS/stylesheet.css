@@ -1,142 +1,293 @@
-body{
-    background: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #000;
-    min-width: 1500px;
-    font-size: 1em;
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+    --bg: #faf9f7;
+    --text: #1c1b19;
+    --muted: #6f6a63;
+    --line: #e6e2dc;
+    --gutter: clamp(16px, 5vw, 64px);
 }
-.navigationL{
-    padding-top: 7%;
-    padding-left: 5%;
-    float: left; 
-    position: absolute;
+
+* {
+    box-sizing: border-box;
 }
-.navigationL a{
-    text-decoration-line: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+/* The header links sit in two separate divs, so the body grid puts them on one row
+   and lets every other block span the full width under them. */
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    min-height: 100vh;
+}
+
+body > * {
+    grid-column: 1 / -1;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Header */
+.navigationL,
+.navigationR {
+    grid-column: auto;
+    grid-row: 1;
+    padding: 32px var(--gutter) 24px;
+    border-bottom: 1px solid var(--line);
+}
+
+.navigationL a {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+}
+
+.navigationR {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    padding-left: 0;
+}
+
+.navigationR br {
+    display: none;
+}
+
+.navigationR a {
+    font-size: 0.85rem;
     font-weight: 500;
-    font-size: 2.5em;
-    color: #000;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
 }
-.navigationR{
-    padding-top: 7%;
-    padding-right: 5%;
-    float: right;
+
+.navigationR a:hover,
+.Fright a:hover {
+    color: var(--text);
 }
- .navigationR a{
-    text-decoration-line: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1em;
-    font-weight: 500;
-    color: #000;
-    padding-right: 15px;
- }
- .navigationR img{
-    padding-top:10px;
-    padding-right: 20px;
+
+.navigationR img,
+.Fleft img {
+    display: block;
     width: 20px;
     height: 20px;
-    float: right;
- }
- .ContactGrid {
-    padding-top: 20%;
-    padding-left: 10%;
-    padding-right: 10%;
-    display: grid;
-    grid-template-columns: 25% 25% 50%;
-    grid-column-gap: 100px;
- }
- .HomeGrid{
-    display: grid;
-    padding-top: 20%;
-    padding-left: 12%;
-    padding-right: 12%;
-    padding-bottom: 5%;
-    grid-template-columns: repeat(4, 300px);
-    grid-gap: 20px;
-    grid-auto-rows: 430px;
-    grid-area: auto;
- }
- .HomeGridItem{
-    display: grid;
-    grid-template-rows: 400px 30px;
- }
- .HomeGridItem:hover{
-    opacity: 0.50;
-    transform: scale(1.1);
-}
- .HomeGrid > div {
-    /*border: #000 1px solid;*/
- }
-.HomeGridImg{
-    width: 300px;
-    height: 400px;
-}
-.HomeGridTitle{
-    color: black;
-    margin: auto;
-    text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
-}
-.footer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0px;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 0px;
-    background-color: #efefef;
     opacity: 0.75;
-  }
-.Fleft{
-float: left;
-padding-left: 50px;
-padding-top: 20px;
+    transition: opacity 0.2s;
 }
-.Fcenter{
-text-align: center;
+
+.navigationR a:hover img,
+.Fleft a:hover img {
+    opacity: 1;
 }
-.Fright{
-position: absolute;
-float: right;
-right: 50px;
-padding-top: 20px;
+
+#padding {
+    padding: 0;
 }
-#padding{
-    padding-left: 10px;
-    color: #000;
-}
-a:link {
-    text-decoration: none;
-}
-a:visited {
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: none;
-}
-a:active {
-    text-decoration: none;
-}
-/*Animal Gallary*/
-.MainGallary{
+
+/* Home page: one card per gallery */
+.HomeGrid {
     display: grid;
-    grid-area: auto;
-    grid-column-gap: 0.5%;
-    grid-template-columns: repeat(6, 1fr);
-    padding-top: 20%;
-    padding-left: 12%;
-    padding-right: 12%;
-    padding-bottom: 5%;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 32px 24px;
+    padding: 48px var(--gutter) 64px;
 }
-#Gallary img{
-    width: 200px;
-    height: 200px;
-    transition: 0.3s;
+
+.HomeGridItem {
+    display: block;
 }
-#Gallary img:hover{
-    opacity: 0.50;
-    transform: scale(1.1);
+
+.HomeGridItem > div:first-child {
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--line);
+}
+
+.HomeGridImg {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.HomeGridItem:hover .HomeGridImg {
+    transform: scale(1.04);
+}
+
+.HomeGridTitle {
+    margin: 14px 0 0;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Gallery pages: square thumbnails that open the lightbox */
+.MainGallary {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    padding: 48px var(--gutter) 64px;
+}
+
+.GallaryImg {
+    overflow: hidden;
+    border-radius: 3px;
+    background: var(--line);
+}
+
+#Gallary img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    transition: transform 0.5s ease, opacity 0.3s;
+}
+
+#Gallary img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Contact page */
+.ContactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr minmax(260px, 0.9fr);
+    gap: 48px;
+    padding: 56px var(--gutter) 72px;
+    align-items: start;
+}
+
+.ContactGrid h3 {
+    margin: 0 0 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+}
+
+.ContactGrid p,
+.ContactGrid ul {
+    margin: 0 0 28px;
+}
+
+.ContactGrid ul {
+    padding-left: 18px;
+}
+
+.ContactGrid a {
+    border-bottom: 1px solid currentColor;
+}
+
+#Moe {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding: 24px var(--gutter);
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.footer p {
+    margin: 0;
+}
+
+.Fleft {
+    display: flex;
+    gap: 14px;
+}
+
+.Fleft a {
+    padding: 0 !important;
+}
+
+.Fright {
+    display: flex;
+    gap: 20px;
+}
+
+.Fright a {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: color 0.2s;
+}
+
+@media (max-width: 900px) {
+    .ContactGrid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    #Moe {
+        max-width: 420px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .navigationL {
+        padding-bottom: 8px;
+        border-bottom: 0;
+    }
+
+    .navigationR {
+        grid-row: 2;
+        justify-content: flex-start;
+        padding: 0 var(--gutter) 20px;
+    }
+
+    .HomeGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 12px;
+        padding-top: 28px;
+    }
+
+    .HomeGridTitle {
+        font-size: 1.1rem;
+        margin-top: 8px;
+    }
+
+    .MainGallary {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+        padding: 20px 4px 40px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
